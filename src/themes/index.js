@@ -1,13 +1,13 @@
-export const colors = {
+export const themes = {
   white: '#ffffff',
   black: '#000000',
   green: '#37d67a',
   red: '#f47373',
   orange: '#ff8a65',
-  gray: '#808080',
+  gray: '#4c585b',
   softgray: '#d3e3fd',
   firstColor: '#e5f19a',
-  secondColor: '#be9dfe',
+  secondColor: '#c68efd',
   thirdColor: '#e2b76f',
   fourthColor: '#0fb7d8',
   fifthColor: '#009bf8',
