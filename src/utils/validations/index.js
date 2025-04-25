@@ -5,7 +5,7 @@ export const AddNoteSchema = Yup.object().shape({
     .max(20, 'Title must be less than 20 characters!')
     .required('Required field!'),
   description: Yup.string()
-    .max(50, 'Title must be less than 50 characters!')
+    .max(100, 'Title must be less than 50 characters!')
     .required('Required field!'),
   time: Yup.string().required('Required field!'),
   date: Yup.string().required('Required field!'),
