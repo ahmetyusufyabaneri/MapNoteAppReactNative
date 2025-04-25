@@ -3,6 +3,7 @@ import {themes} from '../../themes';
 import {Edit} from 'iconsax-react-nativejs';
 
 const NoteCard = ({data}) => {
+  console.log('data', data);
   return (
     <View style={styles.container}>
       <View style={styles.top}>
@@ -14,6 +15,7 @@ const NoteCard = ({data}) => {
       <Text style={styles.description}>{data?.description}</Text>
       <View style={styles.timeContainer}>
         <Text style={styles.time}>{data?.time}</Text>
+        <Text style={styles.date}>{data?.date}</Text>
       </View>
     </View>
   );
@@ -45,10 +47,17 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   timeContainer: {
-    alignItems: 'flex-end',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     marginTop: 16,
   },
   time: {
+    color: '#4C585B',
+    fontSize: 16,
+    fontWeight: '700',
+  },
+  date: {
     color: '#4C585B',
     fontSize: 16,
     fontWeight: '700',

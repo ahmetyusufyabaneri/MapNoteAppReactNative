@@ -12,30 +12,20 @@ const Notes = () => {
 
   const [notes, setNotes] = useState([]);
 
-  console.log('notes', notes);
-
   const getNotes = () => {
     firestore()
       .collection('Notes')
       .get()
       .then(querySnapshot => {
-        console.log('Total notes:', querySnapshot.size);
-
         let notes = [];
 
         querySnapshot.forEach(documentSnapshot => {
-          console.log(
-            'Note ID:',
-            documentSnapshot.id,
-            'Note Data:',
-            documentSnapshot.data(),
-          );
-
           notes.push({
             id: documentSnapshot.id,
             title: documentSnapshot.data().title,
             description: documentSnapshot.data().description,
             time: documentSnapshot.data().time,
+            date: documentSnapshot.data().date,
           });
 
           setNotes(notes);
