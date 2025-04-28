@@ -4,17 +4,24 @@ import {Button, Input} from '@ui-kitten/components';
 import {Formik} from 'formik';
 import firestore from '@react-native-firebase/firestore';
 import {AddNoteSchema} from '../../utils/validations';
+import CustomModal from '../../components/custom-modal';
+import {useState} from 'react';
 
 const AddNote = () => {
+  const [visible, setVisible] = useState(false);
+
   const addNote = values => {
     firestore()
       .collection('Notes')
       .add(values)
-      .then(() => console.log('Note added!'));
+      .then(() => {
+        setVisible(true);
+      });
   };
 
   return (
     <View style={screenStyles.container}>
+      <CustomModal visible={visible} closeModal={() => setVisible(false)} />
       <Formik
         initialValues={{
           title: '',
