@@ -24,5 +24,13 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: height * 0.05,
     right: width * 0.07,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
 });
