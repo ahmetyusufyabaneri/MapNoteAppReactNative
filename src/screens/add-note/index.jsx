@@ -1,4 +1,4 @@
-import {StyleSheet, View} from 'react-native';
+import {ActivityIndicator, StyleSheet, View} from 'react-native';
 import {screenStyles} from '../../styles/screen-styles';
 import {Button, Input} from '@ui-kitten/components';
 import {Formik} from 'formik';
@@ -9,13 +9,16 @@ import {useState} from 'react';
 
 const AddNote = () => {
   const [visible, setVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const addNote = values => {
+    setLoading(true);
     firestore()
       .collection('Notes')
       .add(values)
       .then(() => {
         setVisible(true);
+        setLoading(false);
       });
   };
 
@@ -73,8 +76,12 @@ const AddNote = () => {
               caption={errors.date}
               status={errors.date ? 'danger' : 'basic'}
             />
-            <Button onPress={handleSubmit} style={styles.button} size="large">
-              Save
+            <Button
+              onPress={handleSubmit}
+              disabled={loading}
+              style={styles.button}
+              size="large">
+              {loading ? <ActivityIndicator /> : 'Save'}
             </Button>
           </View>
         )}
